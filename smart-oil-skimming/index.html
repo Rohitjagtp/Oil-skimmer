@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Oil Skimming System — Smart India Hackathon 2026 | Team Innovation</title>
+<meta name="description" content="An automated oil-skimming system that removes floating oil from industrial coolant, senses oil level, and adapts belt speed automatically — with real-time monitoring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="mark">SO</span>Smart Oil Skimming</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="#applications">Applications</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="about.html" class="btn-ghost" style="font-size:0.85rem;">About</a>
+      <a href="dashboard.html" class="btn btn-primary">Live Dashboard</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">SMART INDIA HACKATHON 2026 · TEAM INNOVATION</span>
+        <h1>SMART OIL<br>SKIMMING SYSTEM</h1>
+        <div class="sub-lines">
+          Automated Oil Removal.<br>
+          Intelligent Control.<br>
+          Real-Time Monitoring.<br>
+          Sustainable Industry.
+        </div>
+        <p class="lede">An automated oil-skimming system designed to continuously remove floating oil from industrial coolant and wastewater — while monitoring oil levels and intelligently controlling belt speed for efficient operation.</p>
+        <div class="hero-actions">
+          <a href="dashboard.html" class="btn btn-primary">View Live Dashboard</a>
+          <a href="#how-it-works" class="btn btn-ghost">Explore How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b data-count="8" data-suffix=" stages">0</b><span>Process Pipeline</span></div>
+          <div class="stat"><b data-count="6">0</b><span>Core Features</span></div>
+          <div class="stat"><b data-count="5">0</b><span>Industrial Applications</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="panel-label"><span><span class="dot-live"></span>SIMULATED TELEMETRY</span><span>UNIT-01</span></div>
+        <svg class="schematic" viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- tank -->
+          <rect x="20" y="140" width="220" height="150" rx="8" fill="none" stroke="#1f4068" stroke-width="2"/>
+          <text x="30" y="132" fill="#5b7899" font-family="IBM Plex Mono" font-size="10">CONTAMINATED COOLANT TANK</text>
+          <!-- liquid -->
+          <rect x="24" y="210" width="212" height="76" fill="#16304f" opacity="0.7"/>
+          <!-- oil layer -->
+          <rect x="24" y="200" width="212" height="12" fill="#ff9f2e" opacity="0.55"/>
+          <circle cx="60" cy="206" r="3" fill="#ffbf6b" class="flow-oil"/>
+          <circle cx="120" cy="205" r="2.5" fill="#ffbf6b"/>
+          <circle cx="180" cy="207" r="3" fill="#ffbf6b"/>
+
+          <!-- conveyor belt diagonal -->
+          <g>
+            <line x1="80" y1="285" x2="230" y2="70" stroke="#17d9e8" stroke-width="4" stroke-linecap="round" class="flow-oil"/>
+            <line x1="95" y1="285" x2="245" y2="70" stroke="#0f2038" stroke-width="10" stroke-linecap="round" opacity="0.4"/>
+          </g>
+
+          <!-- scraper at top -->
+          <rect x="205" y="55" width="60" height="14" rx="3" fill="#0f2038" stroke="#17d9e8" stroke-width="1.5"/>
+          <text x="210" y="48" fill="#6ee8f2" font-family="IBM Plex Mono" font-size="9">SCRAPER</text>
+
+          <!-- oil collection container -->
+          <rect x="240" y="70" width="70" height="50" rx="6" fill="none" stroke="#ff9f2e" stroke-width="2"/>
+          <rect x="244" y="95" width="62" height="21" fill="#ff9f2e" opacity="0.45"/>
+          <text x="242" y="64" fill="#ffbf6b" font-family="IBM Plex Mono" font-size="9">OIL COLLECTION</text>
+
+          <!-- sensor -->
+          <circle cx="150" cy="200" r="9" fill="#0f2038" stroke="#17d9e8" stroke-width="2"/>
+          <rect x="147" y="196" width="6" height="8" fill="#17d9e8" class="scan-line"/>
+          <text x="115" y="190" fill="#6ee8f2" font-family="IBM Plex Mono" font-size="9">OIL SENSOR</text>
+
+          <!-- controller box -->
+          <rect x="340" y="150" width="150" height="110" rx="10" fill="#0a1628" stroke="#5b7899" stroke-width="1.5"/>
+          <text x="352" y="172" fill="#eaf1f8" font-family="IBM Plex Mono" font-size="10" font-weight="600">ESP32 CONTROLLER</text>
+          <rect x="352" y="182" width="126" height="1" fill="#1f4068"/>
+          <text x="352" y="200" fill="#a9bcd0" font-family="IBM Plex Mono" font-size="9">OIL LEVEL: <tspan fill="#ffbf6b">SIM</tspan></text>
+          <text x="352" y="216" fill="#a9bcd0" font-family="IBM Plex Mono" font-size="9">MOTOR: <tspan fill="#6ee8f2">ADAPTIVE</tspan></text>
+          <text x="352" y="232" fill="#a9bcd0" font-family="IBM Plex Mono" font-size="9">WI-FI: <tspan fill="#35c98d">LINKED</tspan></text>
+          <circle cx="465" cy="163" r="4" fill="#35c98d"/>
+
+          <!-- signal line sensor -> controller -->
+          <line x1="159" y1="200" x2="340" y2="195" stroke="#17d9e8" stroke-width="1.5" stroke-dasharray="4 4" class="flow-oil"/>
+          <!-- clean coolant label -->
+          <text x="30" y="300" fill="#a9bcd0" font-family="IBM Plex Mono" font-size="9">CLEANED COOLANT ↓</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-glow">
+
+  <!-- ============ PROBLEM ============ -->
+  <section id="problem" class="problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The Industrial Challenge</span>
+        <h2>Floating oil is a quiet, expensive problem</h2>
+        <p>Oil from industrial machines and processes can enter coolant and wastewater, forming a persistent surface layer that is costly to manage and easy to neglect.</p>
+      </div>
+      <div class="grid-5">
+        <div class="card reveal">
+          <div class="icon">◐</div>
+          <h3>Oil Contamination</h3>
+          <p>Floating oil builds up on the surface of coolant and wastewater over time.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">≋</div>
+          <h3>Water Quality</h3>
+          <p>Contaminated coolant reduces fluid quality and can affect the surrounding environment.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">✋</div>
+          <h3>Manual Operation</h3>
+          <p>Removing oil by hand is labour-intensive and inconsistent.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">⚙</div>
+          <h3>Maintenance</h3>
+          <p>Oil and grime buildup increases wear and maintenance requirements.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">◎</div>
+          <h3>Monitoring</h3>
+          <p>Without sensing, oil collection is inefficient and hard to track.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION ============ -->
+  <section id="solution">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Solution</span>
+        <h2>Smart Oil Skimming System</h2>
+        <p>The system combines automated oil collection, oil-level sensing, intelligent motor-speed control, belt cleaning, and real-time monitoring in one continuous loop.</p>
+      </div>
+      <div class="solution-layout">
+        <div class="reveal">
+          <p style="color:var(--steel-200); max-width:52ch;">Every stage of the loop feeds the next — sensing informs control, control drives collection, and collection is reported back through the dashboard so the cycle keeps running without manual supervision.</p>
+        </div>
+        <div class="flow-diagram reveal">
+          <div class="flow-node">OIL DETECTION</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node">INTELLIGENT CONTROL</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node amber">OIL SKIMMING</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node amber">OIL SEPARATION</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node amber">OIL COLLECTION</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node">BELT CLEANING</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node">REAL-TIME MONITORING</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node">CONTINUOUS OPERATION</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEY FEATURES ============ -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Key Features</span>
+        <h2>Built for continuous, unattended operation</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal"><span class="mono" style="color:var(--cyan-400)">01</span><h3>Automatic Motor Speed Control</h3><p>Adjusts motor and belt speed based on the detected oil level.</p></div>
+        <div class="card reveal"><span class="mono" style="color:var(--cyan-400)">02</span><h3>Real-Time Oil Level Detection</h3><p>Monitors oil level continuously and provides alerts.</p></div>
+        <div class="card reveal"><span class="mono" style="color:var(--cyan-400)">03</span><h3>Smart Monitoring Dashboard</h3><p>Displays oil level, motor speed and system status live.</p></div>
+        <div class="card reveal"><span class="mono" style="color:var(--cyan-400)">04</span><h3>Automatic Belt Cleaning</h3><p>Helps remove collected oil and residue from the belt.</p></div>
+        <div class="card reveal"><span class="mono" style="color:var(--cyan-400)">05</span><h3>Continuous Oil Collection</h3><p>Supports continuous removal of floating oil without manual intervention.</p></div>
+        <div class="card reveal"><span class="mono" style="color:var(--cyan-400)">06</span><h3>Sustainable &amp; Eco-Friendly</h3><p>Supports oil recovery and reduces contaminated discharge.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how-it-works" class="problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2>Eight steps, one continuous loop</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="num">01</div><div><h3>Oil Detection</h3><p>The oil-level sensor detects the oil level and thickness on the coolant surface.</p></div></div>
+        <div class="step reveal"><div class="num">02</div><div><h3>Sensor Signal</h3><p>The sensor sends the detected information to the controller.</p></div></div>
+        <div class="step reveal"><div class="num">03</div><div><h3>Motor Speed Control</h3><p>The controller adjusts motor speed based on the incoming oil-level information.</p></div></div>
+        <div class="step reveal"><div class="num">04</div><div><h3>Conveyor Collection</h3><p>The conveyor belt moves through contaminated coolant/water and collects floating oil.</p></div></div>
+        <div class="step reveal"><div class="num">05</div><div><h3>Oil Scraping</h3><p>A scraper removes the accumulated oil from the belt.</p></div></div>
+        <div class="step reveal"><div class="num">06</div><div><h3>Oil Transfer</h3><p>Separated oil is transferred into an oil collection container.</p></div></div>
+        <div class="step reveal"><div class="num">07</div><div><h3>Belt Cleaning</h3><p>A cleaning mechanism cleans the conveyor belt for the next cycle.</p></div></div>
+        <div class="step reveal"><div class="num">08</div><div><h3>Continuous Operation</h3><p>The system repeats the detection → control → collection process automatically.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SYSTEM ARCHITECTURE ============ -->
+  <section id="architecture">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">System Architecture</span>
+        <h2>From sensing to the dashboard</h2>
+        <p>Hover any block to see what it does.</p>
+      </div>
+      <div class="arch-columns">
+        <div class="reveal">
+          <div class="arch-chain">
+            <div class="arch-block">CONTAMINATED COOLANT<div class="tip">Coolant carrying a floating oil layer enters the skimmer's working area.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">OIL LEVEL SENSOR<div class="tip">Detects the thickness/level of the floating oil layer.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">ESP32 CONTROLLER<div class="tip">Reads the sensor and decides how the motor should respond.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">DATA PROCESSING<div class="tip">Converts raw sensor input into a motor-speed decision.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">MOTOR DRIVER<div class="tip">Translates the controller's command into motor power.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">DC MOTOR<div class="tip">Drives the conveyor belt at the commanded speed.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">CONVEYOR BELT<div class="tip">Physically carries collected oil upward out of the coolant.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">SCRAPER<div class="tip">Removes oil from the belt surface at the top of its travel.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">OIL COLLECTION CONTAINER<div class="tip">Holds the separated oil for later removal/reuse.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">CLEANED COOLANT<div class="tip">Coolant with reduced floating oil, ready for continued use.</div></div>
+          </div>
+        </div>
+        <div class="iot-side reveal">
+          <p class="eyebrow" style="margin-bottom:22px;">IoT Connection</p>
+          <div class="arch-chain">
+            <div class="arch-block">ESP32<div class="tip">Runs the control loop and packages readings for transmission.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">WI-FI / IOT<div class="tip">Carries readings from the controller to the monitoring layer.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">MONITORING SYSTEM<div class="tip">Aggregates readings, prepares them for display and reporting.</div></div>
+            <div class="arch-connector"></div>
+            <div class="arch-block">LIVE DASHBOARD<div class="tip">Shows current status and history to an operator in real time.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECHNOLOGY ============ -->
+  <section id="technology" class="problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Technology Stack</span>
+        <h2>What the system is built from</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card reveal"><h4>Frontend</h4><ul><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul></div>
+        <div class="tech-card reveal"><h4>Backend</h4><ul><li>Python (API-ready)</li></ul></div>
+        <div class="tech-card reveal"><h4>Controller</h4><ul><li>ESP32</li></ul></div>
+        <div class="tech-card reveal"><h4>Sensors</h4><ul><li>Oil-Level Sensor</li><li>Water-Level Sensor</li><li>Temperature Sensor</li></ul></div>
+        <div class="tech-card reveal"><h4>Actuation</h4><ul><li>Motor Driver</li><li>DC Motor</li><li>Conveyor Belt</li></ul></div>
+        <div class="tech-card reveal"><h4>Monitoring</h4><ul><li>Wi-Fi / IoT</li><li>Live Dashboard</li></ul></div>
+      </div>
+      <p class="dash-note" style="margin-top:30px;">The dashboard currently runs on simulated data (see <code>data/sensor-data.js</code>). It is structured so a Python API serving real ESP32 readings can be dropped in without changing the front end.</p>
+    </div>
+  </section>
+
+  <!-- ============ APPLICATIONS ============ -->
+  <section id="applications" class="applications">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Industrial Applications</span>
+        <h2>Where the system fits</h2>
+      </div>
+      <div class="grid-5">
+        <div class="card reveal"><div class="icon">🏭</div><h3>Manufacturing Industries</h3><p>General industrial coolant and wastewater management.</p></div>
+        <div class="card reveal"><div class="icon">⚙</div><h3>CNC Machining</h3><p>Keeps CNC coolant cleaner for longer operating cycles.</p></div>
+        <div class="card reveal"><div class="icon">◈</div><h3>Grinding &amp; Conventional Machines</h3><p>Removes oil that accumulates during grinding and conventional machining.</p></div>
+        <div class="card reveal"><div class="icon">✈</div><h3>Aerospace Component Manufacturing</h3><p>Supports the fluid-cleanliness needs of precision component production.</p></div>
+        <div class="card reveal"><div class="icon">🌿</div><h3>Eco-Friendly Industrial Plants</h3><p>Fits plants aiming to reduce contaminated-fluid discharge.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS ============ -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Benefits</span>
+        <h2>What automated skimming changes</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal"><h3>Coolant &amp; Oil Savings</h3><p>Extends fluid life and reduces fresh-fluid procurement.</p></div>
+        <div class="card reveal"><h3>Reduced Maintenance Cost</h3><p>Reduces wear and maintenance caused by oil and grime buildup.</p></div>
+        <div class="card reveal"><h3>Adaptive Operation</h3><p>Automatically adjusts motor speed according to oil level.</p></div>
+        <div class="card reveal"><h3>Real-Time Monitoring</h3><p>Provides instant information about oil level, system status and alerts.</p></div>
+        <div class="card reveal"><h3>Sustainable Operation</h3><p>Reduces waste and fluid-disposal requirements.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENVIRONMENTAL IMPACT ============ -->
+  <section id="impact" class="problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Environmental Impact</span>
+        <h2>From contaminated to reusable</h2>
+      </div>
+      <div class="impact-chain reveal">
+        <div class="node">CONTAMINATED COOLANT</div><span class="arrow">→</span>
+        <div class="node">OIL SEPARATION</div><span class="arrow">→</span>
+        <div class="node">OIL RECOVERY</div><span class="arrow">→</span>
+        <div class="node">CLEANER COOLANT</div><span class="arrow">→</span>
+        <div class="node">REUSE</div>
+      </div>
+      <div class="grid-2 reveal">
+        <ul class="check-list" style="grid-template-columns:1fr;">
+          <li><span class="tick">✓</span>Helps prevent contaminated oil from reaching drains and surrounding ecosystems.</li>
+          <li><span class="tick">✓</span>Supports sustainable industrial practices.</li>
+        </ul>
+        <ul class="check-list" style="grid-template-columns:1fr;">
+          <li><span class="tick">✓</span>Reduces contaminated-fluid disposal.</li>
+          <li><span class="tick">✓</span>Supports oil recovery and reduces frequent manual inspection and cleaning.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEASIBILITY ============ -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Feasibility</span>
+        <h2>Can this be built and run practically?</h2>
+      </div>
+      <ul class="check-list reveal">
+        <li><span class="tick">✓</span>Uses existing oil-skimmer structure</li>
+        <li><span class="tick">✓</span>Uses standard components</li>
+        <li><span class="tick">✓</span>ESP32-based motor-control integration</li>
+        <li><span class="tick">✓</span>Simple oil-level sensing</li>
+        <li><span class="tick">✓</span>Low-cost belt-cleaning mechanism</li>
+        <li><span class="tick">✓</span>Easy fabrication and maintenance</li>
+        <li><span class="tick">✓</span>Practical system size</li>
+        <li><span class="tick">✓</span>Cost-effective components</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ VIABILITY ============ -->
+  <section class="tight problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Industrial Viability</span>
+        <h2>Does it hold up in a real plant?</h2>
+      </div>
+      <ul class="check-list reveal">
+        <li><span class="tick">✓</span>Suitable for CNC machines</li>
+        <li><span class="tick">✓</span>Suitable for grinding machines</li>
+        <li><span class="tick">✓</span>Suitable for conventional machines</li>
+        <li><span class="tick">✓</span>Handles oil-contaminated coolant/wastewater</li>
+        <li><span class="tick">✓</span>Removes floating oil and grease</li>
+        <li><span class="tick">✓</span>Supports continuous operation</li>
+        <li><span class="tick">✓</span>User-friendly dashboard</li>
+        <li><span class="tick">✓</span>Supports sustainable industrial practices</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CHALLENGES ============ -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Challenges &amp; Strategies</span>
+        <h2>What could go wrong, and the plan for it</h2>
+      </div>
+      <div class="reveal">
+        <div class="challenge-row">
+          <div><div class="ch-label">Challenge</div>Motor speed variation</div>
+          <div class="col-strategy"><div class="st-label">Strategy</div>Test belt speed and calibrate the sensor for accurate control.</div>
+        </div>
+        <div class="challenge-row">
+          <div><div class="ch-label">Challenge</div>Debris &amp; dust</div>
+          <div class="col-strategy"><div class="st-label">Strategy</div>Use mechanical filtering and scraper cleaning.</div>
+        </div>
+        <div class="challenge-row">
+          <div><div class="ch-label">Challenge</div>Sensor errors / low oil level</div>
+          <div class="col-strategy"><div class="st-label">Strategy</div>Proper sensor positioning and calibration.</div>
+        </div>
+        <div class="challenge-row">
+          <div><div class="ch-label">Challenge</div>Belt &amp; motor heat/wear</div>
+          <div class="col-strategy"><div class="st-label">Strategy</div>Use appropriate components and preventive maintenance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH ============ -->
+  <section id="research" class="problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Research &amp; References</span>
+        <h2>Grounded in existing standards and studies</h2>
+      </div>
+      <div class="research-list reveal">
+        <div class="research-item"><div><div class="r-title">BIS IS 493 (Part 1): 2019</div><div class="r-tag">Standard</div></div></div>
+        <div class="research-item"><div><div class="r-title">Indian Oil — Industrial Lubricating Oils</div><div class="r-tag">Reference</div></div></div>
+        <div class="research-item"><div><div class="r-title">EPA Metalworking Fluid Assessment</div><div class="r-tag">Research</div></div></div>
+        <div class="research-item"><div><div class="r-title">CNC Oil-Skimmer Research</div><div class="r-tag">Research</div></div></div>
+        <div class="research-item"><div><div class="r-title">Oil-Skimmer Operating-Condition Research</div><div class="r-tag">Research</div></div></div>
+        <div class="research-item"><div><div class="r-title">IoT-Based Oil-Skimmer Research</div><div class="r-tag">Research</div></div></div>
+        <div class="research-item"><div><div class="r-title">Belt-Type Oil Skimmer</div><div class="r-tag">Reference Design</div></div></div>
+        <div class="research-item"><div><div class="r-title">Disc-Type Oil Skimmer</div><div class="r-tag">Reference Design</div></div></div>
+        <div class="research-item"><div><div class="r-title">Tube / Rope-Type Oil Skimmer</div><div class="r-tag">Reference Design</div></div></div>
+        <div class="research-item"><div><div class="r-title">Weir-Type Oil Skimmer</div><div class="r-tag">Reference Design</div></div></div>
+      </div>
+      <p class="dash-note">External links were not supplied in the source project material, so none are shown here to avoid inventing citations. Add real URLs to this list once available.</p>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section id="team">
+    <div class="wrap">
+      <div class="section-head text-center reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <span class="eyebrow" style="justify-content:center;">Team Innovation</span>
+        <h2>Smart India Hackathon 2026</h2>
+      </div>
+
+      <div class="team-meta reveal">
+        <div class="m"><label>College</label><span contenteditable="true">Your College Name</span></div>
+        <div class="m"><label>Department</label><span contenteditable="true">Your Department</span></div>
+        <div class="m"><label>Team ID</label><span contenteditable="true">TEAM-ID-XXXX</span></div>
+        <div class="m"><label>Problem Statement ID</label><span contenteditable="true">SIH-PS-XXXX</span></div>
+      </div>
+
+      <div class="team-grid reveal">
+        <div class="team-card"><div class="avatar">01</div><div contenteditable="true">Team Member 1</div><div class="role" contenteditable="true">Role / Branch</div></div>
+        <div class="team-card"><div class="avatar">02</div><div contenteditable="true">Team Member 2</div><div class="role" contenteditable="true">Role / Branch</div></div>
+        <div class="team-card"><div class="avatar">03</div><div contenteditable="true">Team Member 3</div><div class="role" contenteditable="true">Role / Branch</div></div>
+        <div class="team-card"><div class="avatar">04</div><div contenteditable="true">Team Member 4</div><div class="role" contenteditable="true">Role / Branch</div></div>
+        <div class="team-card"><div class="avatar">05</div><div contenteditable="true">Team Member 5</div><div class="role" contenteditable="true">Role / Branch</div></div>
+        <div class="team-card"><div class="avatar">06</div><div contenteditable="true">Team Member 6</div><div class="role" contenteditable="true">Role / Branch</div></div>
+      </div>
+      <p class="edit-hint">Click any name, role or field above to edit directly in the browser.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta-banner reveal">
+        <div>
+          <h3>See it running now</h3>
+          <p>Open the live monitoring dashboard to view simulated oil-level, motor-speed and system-status data updating in real time.</p>
+        </div>
+        <a href="dashboard.html" class="btn btn-primary">View Live Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Smart Oil Skimming System</h3>
+        <p>Automated Oil Removal · Intelligent Control · Real-Time Monitoring · Sustainable Industry</p>
+      </div>
+      <div class="footer-cols">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#technology">Technology</a></li>
+        </ul>
+      </div>
+      <div class="footer-cols">
+        <h4>More</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="#applications">Applications</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Team Innovation — Smart India Hackathon 2026</span>
+      <span>© 2026 Smart Oil Skimming System</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
